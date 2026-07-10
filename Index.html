@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubhi Sharma | Portfolio</title>
+    <style>
+        /* Base Themes */
+        :root {
+            --bg-color: #f4f6f9;
+            --card-bg: white;
+            --text-color: #333;
+            --heading-color: #1e3c72;
+            --sub-heading: #2a5298;
+            --border-color: #eef2f5;
+            --shadow: rgba(0,0,0,0.05);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --heading-color: #64b5f6;
+            --sub-heading: #90caf9;
+            --border-color: #333;
+            --shadow: rgba(0,0,0,0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Dark Mode Button Style */
+        .theme-toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .theme-toggle-btn:hover {
+            background: white;
+            color: #1e3c72;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        section {
+            background: var(--card-bg);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px var(--shadow);
+        }
+        h2 {
+            color: var(--heading-color);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .skill-category h3 {
+            color: var(--sub-heading);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        .skill-category p {
+            font-size: 0.95rem;
+        }
+        .project-card {
+            border-left: 4px solid #2a5298;
+            padding-left: 15px;
+            margin-bottom: 25px;
+        }
+        [data-theme="dark"] .project-card {
+            border-left: 4px solid #64b5f6;
+        }
+        .project-card:last-child {
+            margin-bottom: 0;
+        }
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .project-tech {
+            font-size: 0.85rem;
+            color: var(--sub-heading);
+            font-weight: 600;
+            margin: 4px 0;
+        }
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .contact-info a:hover {
+            background: white;
+            color: #1e3c72;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <button class="theme-toggle-btn" id="themeToggle">🌙 Dark Mode</button>
+
+        [span_0](start_span)<h1>Shubhi Sharma</h1>[span_0](end_span)
+        <p>Software Developer | Data Analyst | Front-End Developer | [span_1](start_span)Graphic Designer</p>[span_1](end_span)
+        <div class="contact-info">
+            <a href="mailto:sshubhi129@gmail.com">📧 sshubhi129@gmail.com</a>
+            <a href="tel:+917906553899">📞 +91 7906553899</a>
+            <a href="https://linkedin.com/in/shubhi-sharma-52793b380" target="_blank">💼 LinkedIn Profile</a>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section id="about">
+            <h2>About Me</h2>
+            [span_2](start_span)<p>Driven and highly motivated B.Sc Final Year student aspiring to build a career in Software Development.[span_2](end_span) [span_3](start_span)Passionate about creating efficient, scalable, and user-focused technology solutions through continuous learning and innovation.[span_3](end_span) [span_4](start_span)Known for strong analytical thinking, problem-solving abilities, adaptability, and a commitment to excellence.[span_4](end_span) [span_5](start_span)Eager to contribute to challenging projects, collaborate with diverse teams, and grow in a dynamic, technology-driven environment.[span_5](end_span)</p>
+        </section>
+
+        <section id="skills">
+            [span_6](start_span)<h2>Technical Skills</h2>[span_6](end_span)
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    [span_7](start_span)<p>Python, Java, JavaScript, SQL</p>[span_7](end_span)
+                </div>
+                <div class="skill-category">
+                    <h3>Data & Analytics</h3>
+                    [span_8](start_span)<p>Power BI, Microsoft Excel (Advanced), Data Cleaning, Data Visualization, Dashboard Creation, Google Sheets</p>[span_8](end_span)
+                </div>
+                <div class="skill-category">
+                    <h3>Design & Web</h3>
+                    [span_9](start_span)<p>HTML5, CSS, Canva, Graphic Design, UI/UX Concepts, Logo & Layout Design</p>[span_9](end_span)
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            
+            <div class="project-card">
+                <div class="project-title">Sales Performance Dashboard</div>
+                <div class="project-tech">Power BI & Excel (03/2026 - 04/2026)</div>
+                <p>Designed an interactive dashboard to analyze sales trends, revenue performance, and key business metrics.</p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-title">Student Management System</div>
+                <div class="project-tech">Python (06/2026 - 07/2026)</div>
+                <p>Developed a system to manage student records, including adding, updating, searching, and deleting information.</p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-title">Portfolio Website</div>
+                [span_10](start_span)<div class="project-tech">HTML, CSS, JavaScript (05/2025 - 06/2025)</div>[span_10](end_span)
+                [span_11](start_span)<p>Built a responsive personal portfolio website showcasing projects, skills, and contact information.</p>[span_11](end_span)
+            </div>
+
+            <div class="project-card">
+                <div class="project-title">Employee Database Management System</div>
+                [span_12](start_span)<div class="project-tech">SQL (07/2026)</div>[span_12](end_span)
+                [span_13](start_span)<p>Created SQL queries for efficient data insertion, structural updates, filtering, and reporting.</p>[span_13](end_span)
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <p><strong>Bachelor of Science (B.Sc.)</strong> - Raghunath Girls' Post Graduate College (CCSU) | 2024 - 2027</p>
+            <p><strong>Senior Secondary (Class XII)</strong> - Darshan Academy {C.B.S.E} | 2023 - 2024</p>
+            <p><strong>Secondary (Class X)</strong> - Darshan Academy | 2021 - 2022</p>
+        </section>
+
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('themeToggle');
+        
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                toggleBtn.innerHTML = '☀️ Light Mode';
+            }
+        });
+    </script>
+
+</body>
+</html>
+
+```

@@ -1,155 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shubhi Sharma | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shubhi Sharma | Portfolio</title>
+
+<meta name="description" content="Portfolio of Shubhi Sharma - Software Developer, Data Analyst and Front-End Developer">
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+
 </head>
-<body class="dark-theme"> <!-- Default Premium Dark Theme -->
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">SS</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <!-- Premium Theme Toggle Button -->
-        <button id="theme-toggle" class="theme-btn">
-            <i class="fas fa-sun" id="sun-icon"></i>
-            <i class="fas fa-moon" id="moon-icon" style="display: none;"></i>
-        </button>
-    </nav>
+<body>
 
-    <!-- Hero Section -->
-    <header id="home" class="hero">
-        <div class="hero-content">
-            <h1>Hi, I'm <span>Shubhi Sharma</span></h1>
-            <h3>I am a <span id="typing-effect"></span></h3>
-            <p>Driven and highly motivated B.Sc student passionate about creating efficient, scalable, and user-focused technology solutions[cite: 1].</p>
-            <div class="social-icons">
-                <a href="https://linkedin.com/in/shubhi-sharma-52793b380" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:sshubhi129@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
-            <a href="#projects" class="btn">View My Work</a>
-        </div>
-    </header>
+<div class="loader">
+<div class="spinner"></div>
+</div>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <h2>About Me</h2>
-        <div class="about-text">
-            <p>I am a final-year B.Sc. student at Raghunath Girls' Post Graduate College (CCSU)[cite: 1]. I blend analytical thinking with creative design to build robust software applications and insightful data dashboards[cite: 1]. With a strong commitment to excellence and continuous learning, I thrive in dynamic, technology-driven environments[cite: 1].</p>
-        </div>
-    </section>
+<div class="cursor"></div>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <h2>My Skills</h2>
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3><i class="fas fa-code"></i> Programming & Web</h3>
-                <ul>
-                    <li>Python, Java, JavaScript, SQL[cite: 1]</li>
-                    <li>HTML5, CSS[cite: 1]</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3><i class="fas fa-chart-bar"></i> Data & Analytics</h3>
-                <ul>
-                    <li>Power BI, Advanced Excel, Google Sheets[cite: 1]</li>
-                    <li>Data Cleaning & Visualization[cite: 1]</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3><i class="fas fa-paint-brush"></i> Creative Design</h3>
-                <ul>
-                    <li>Canva, Graphic Design, UI/UX Design[cite: 1]</li>
-                    <li>Logo, Poster & Presentation Design[cite: 1]</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+<header>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <h2>Featured Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <h3>Student Management System</h3>
-                <span class="tech-tag">Python</span>
-                <p>Developed a system to manage student records, including adding, updating, searching, and deleting information[cite: 1].</p>
-                <div class="project-links">
-                    <a href="#" target="_blank" class="proj-btn"><i class="fab fa-github"></i> Source Code</a>
-                </div>
-            </div>
+<nav class="navbar">
 
-            <div class="project-card">
-                <h3>Sales Performance Dashboard</h3>
-                <span class="tech-tag">Power BI & Excel</span>
-                <p>Designed an interactive dashboard to analyze sales trends, revenue performance, and key business metrics[cite: 1].</p>
-                <div class="project-links">
-                    <a href="#" target="_blank" class="proj-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                </div>
-            </div>
+<a href="#" class="logo">
+Shubhi<span>.</span>
+</a>
 
-            <div class="project-card">
-                <h3>Employee Database System</h3>
-                <span class="tech-tag">SQL</span>
-                <p>Created SQL queries for data insertion, updates, filtering, and reporting[cite: 1].</p>
-                <div class="project-links">
-                    <a href="#" target="_blank" class="proj-btn"><i class="fab fa-github"></i> SQL Queries</a>
-                </div>
-            </div>
+<ul class="nav-links">
 
-            <div class="project-card">
-                <h3>Portfolio Website</h3>
-                <span class="tech-tag">HTML, CSS, JS</span>
-                <p>Built a responsive personal portfolio website showcasing projects, skills, and contact information[cite: 1].</p>
-                <div class="project-links">
-                    <a href="#" target="_blank" class="proj-btn"><i class="fas fa-link"></i> Live URL</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<li><a href="#home">Home</a></li>
 
-    <!-- Education Section -->
-    <section id="education" class="education">
-        <h2>Education</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <h4>Bachelor of Science (B.Sc.)</h4>
-                <p class="institute">Raghunath Girls' Post Graduate College - Affilated CCSU[cite: 1]</p>
-                <span class="duration">2024 - 2027[cite: 1]</span>
-            </div>
-            <div class="timeline-item">
-                <h4>Senior Secondary (Class XII)</h4>
-                <p class="institute">Darshan Academy {C.B.S.E}[cite: 1]</p>
-                <span class="duration">2023 - 2024[cite: 1]</span>
-            </div>
-        </div>
-    </section>
+<li><a href="#about">About</a></li>
 
-    <!-- Footer -->
-    <footer id="contact">
-        <h2>Get In Touch</h2>
-        <p>Feel free to reach out for collaborations or job opportunities!</p>
-        <p><i class="fas fa-map-marker-alt"></i> Meerut, UP, IN[cite: 1]</p>
-        <div class="footer-links">
-            <a href="mailto:sshubhi129@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-            <a href="https://linkedin.com/in/shubhi-sharma-52793b380" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        </div>
-        <p class="credits">&copy; 2026 Shubhi Sharma. All Rights Reserved.</p>
-    </footer>
+<li><a href="#skills">Skills</a></li>
 
-    <script src="script.js"></script>
-</body>
-</html>
+<li><a href="#projects">Projects</a></li>
+
+<li><a href="#education">Education</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+<div class="nav-btns">
+
+<button id="theme-toggle">
+
+<i class="fa-solid fa-moon"></i>
+
+</button>
+
+<a href="resume.pdf" class="resume-btn">
+Resume
+</a>
+
+</div>
+
+<div class="menu-btn">
+
+<i class="fa-solid fa-bars"></i>
+
+</div>
+
+</nav>
+
+<section id="home" class="hero">
+
+<div class="hero-left">
+
+<h3>Hello 👋 I'm</h3>
+
+<h1>
+
+Shubhi
+<span>Sharma</span>
+
+</h1>
+
+<h2>
+
+<span class="typing"></span>
+
+</h2>
+
+<p>
+
+Passionate Software Developer dedicated to creating beautiful user experiences, interactive dashboards and scalable software solutions.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="#projects" class="btn1">
+
+View Projects
+
+</a>
+
+<a href="resume.pdf" class="btn2">
+
+Download Resume
+
+</a>
+
+</div>
+
+<div class="social-icons">
+
+<a href="https://github.com/sshubhi4854-gif" target="_blank">
+
+<i class="fab fa-github"></i>
+
+</a>
+
+<a href="https://linkedin.com/in/shubhi-sharma-52793b380" target="_blank">
+
+<i class="fab fa-linkedin"></i>
+
+</a>
+
+<a href="mailto:sshubhi129@gmail.com">
+
+<i class="fa-solid fa-envelope"></i>
+
+</a>
+
+<a href="tel:+917906553899">
+
+<i class="fa-solid fa-phone"></i>
+
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<div class="profile-card">
+
+<img src="assets/profile.png" alt="Shubhi Sharma">
+
+<div class="circle"></div>
+
+</div>
+
+</div>
+
+<div class="blob blob1"></div>
+
+<div class="blob blob2"></div>
+
+<div class="blob blob3"></div>
+
+</section>
+
+</header>
+
+<main>
+
+<section id="about" class="about">
+
+<div class="section-title">
+
+<h2>About Me</h2>
+
+<p>Who I Am</p>
+
+</div>
+
+<div class="about-container">
+
+<div class="about-image">
+
+<img src="assets/profile.png" alt="Profile">
+
+</div>
+
+<div class="about-content">
+
+<h3>
+
+Software Developer &
+Data Analyst
+
+</h3>
+
+<p>
+
+Driven and highly motivated B.Sc Final Year student aspiring to build a career in Software Development.
+
+Passionate about Python, JavaScript, Power BI, SQL and creating responsive websites.
+
+I enjoy solving real-world problems through clean code and modern user interfaces.
+
+</p>
+
+<div class="about-cards">
+
+<div class="card">
+
+<h2>5+</h2>
+
+<p>Projects</p>
+
+</div>
+
+<div class="card">
+
+<h2>10+</h2>
+
+<p>Skills</p>
+
+</div>
+
+<div class="card">
+
+<h2>100%</h2>
+
+<p>Dedication</p>
+
+</div>
+
+</div>
+
+<a href="#contact" class="btn1">
+
+Hire Me
+
+</a>
+
+</div>
+
+</div>
+
+</section>

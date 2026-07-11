@@ -152,3 +152,216 @@ behavior:"smooth"
 });
 
 };
+/* ===========================
+   SCROLL PROGRESS BAR
+=========================== */
+
+const progressBar = document.querySelector(".progress-bar");
+
+window.addEventListener("scroll", () => {
+
+const totalHeight =
+document.documentElement.scrollHeight -
+window.innerHeight;
+
+const progress =
+(window.pageYOffset / totalHeight) * 100;
+
+progressBar.style.width = progress + "%";
+
+});
+
+/* ===========================
+   ACTIVE NAVBAR LINK
+=========================== */
+
+const sections = document.querySelectorAll("section");
+
+const navLinks = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+
+let current = "";
+
+sections.forEach(section => {
+
+const sectionTop = section.offsetTop - 150;
+
+const sectionHeight = section.clientHeight;
+
+if (pageYOffset >= sectionTop) {
+
+current = section.getAttribute("id");
+
+}
+
+});
+
+navLinks.forEach(link => {
+
+link.classList.remove("active");
+
+if (link.getAttribute("href") === "#" + current) {
+
+link.classList.add("active");
+
+}
+
+});
+
+});
+
+/* ===========================
+   MOBILE MENU
+=========================== */
+
+const menuBtn = document.querySelector(".menu-btn");
+
+const navMenu = document.querySelector(".nav-links");
+
+menuBtn.addEventListener("click", () => {
+
+navMenu.classList.toggle("show");
+
+});
+
+/* ===========================
+   SCROLL REVEAL ANIMATION
+=========================== */
+
+const revealElements = document.querySelectorAll(
+
+".hero,.about,.skills,.projects,.education,.contact,.project-card,.skill-card,.timeline-item"
+
+);
+
+function revealOnScroll() {
+
+const trigger = window.innerHeight * 0.85;
+
+revealElements.forEach(el => {
+
+const top = el.getBoundingClientRect().top;
+
+if (top < trigger) {
+
+el.classList.add("show");
+
+}
+
+});
+
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+revealOnScroll();
+
+/* ===========================
+   STATS COUNTER
+=========================== */
+
+const counters = document.querySelectorAll(".card h2");
+
+const speed = 120;
+
+const animateCounter = () => {
+
+counters.forEach(counter => {
+
+const target = parseInt(counter.innerText);
+
+let count = 0;
+
+const update = () => {
+
+const increment = Math.ceil(target / speed);
+
+count += increment;
+
+if (count < target) {
+
+counter.innerText = count + "+";
+
+requestAnimationFrame(update);
+
+} else {
+
+counter.innerText = target + "+";
+
+}
+
+};
+
+update();
+
+});
+
+};
+
+animateCounter();
+
+/* ===========================
+   SMOOTH SCROLL
+=========================== */
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+anchor.addEventListener("click", function (e) {
+
+e.preventDefault();
+
+document.querySelector(this.getAttribute("href")).scrollIntoView({
+
+behavior: "smooth"
+
+});
+
+});
+
+});
+
+/* ===========================
+   GLASS HOVER EFFECT
+=========================== */
+
+const cards = document.querySelectorAll(
+
+".project-card,.skill-card,.card,.info-box"
+
+);
+
+cards.forEach(card => {
+
+card.addEventListener("mousemove", e => {
+
+const rect = card.getBoundingClientRect();
+
+const x = e.clientX - rect.left;
+
+const y = e.clientY - rect.top;
+
+card.style.background =
+
+`radial-gradient(circle at ${x}px ${y}px,
+rgba(59,130,246,.18),
+rgba(255,255,255,.05))`;
+
+});
+
+card.addEventListener("mouseleave", () => {
+
+card.style.background = "rgba(255,255,255,.05)";
+
+});
+
+});
+
+/* ===========================
+   CONSOLE MESSAGE
+=========================== */
+
+console.log(
+"%cDesigned & Developed by Shubhi Sharma",
+"color:#06b6d4;font-size:18px;font-weight:bold;"
+);

@@ -1,117 +1,92 @@
-/* ===========================
-   LOADER
-=========================== */
+/*======================================
+LOADER
+======================================*/
 
 window.addEventListener("load", () => {
-    const loader = document.querySelector(".loader");
-    loader.style.opacity = "0";
 
-    setTimeout(() => {
-        loader.style.display = "none";
-    }, 500);
-});
+const loader = document.querySelector(".loader");
 
-/* ===========================
-   DARK MODE
-=========================== */
+setTimeout(() => {
 
-const themeBtn = document.getElementById("theme-toggle");
+loader.style.opacity = "0";
 
-themeBtn.addEventListener("click", () => {
+loader.style.visibility = "hidden";
 
-    document.body.classList.toggle("light");
-
-    const icon = themeBtn.querySelector("i");
-
-    if (document.body.classList.contains("light")) {
-
-        icon.classList.remove("fa-moon");
-        icon.classList.add("fa-sun");
-
-    } else {
-
-        icon.classList.remove("fa-sun");
-        icon.classList.add("fa-moon");
-
-    }
+},800);
 
 });
 
-/* ===========================
-   TYPING EFFECT
-=========================== */
+/*======================================
+AOS
+======================================*/
 
-const words = [
+AOS.init({
+
+duration:1000,
+
+once:true,
+
+offset:120
+
+});
+
+/*======================================
+TYPING EFFECT
+======================================*/
+
+new Typed(".typing",{
+
+strings:[
 
 "Software Developer",
 
-"Python Developer",
-
 "Power BI Developer",
 
-"Front-End Developer",
+"Data Analyst",
 
-"Graphic Designer"
+"Graphic Designer",
 
-];
+"Web Developer"
 
-let wordIndex = 0;
-let charIndex = 0;
-let deleting = false;
+],
 
-const typing = document.querySelector(".typing");
+typeSpeed:70,
 
-function typeEffect(){
+backSpeed:40,
 
-    const current = words[wordIndex];
+backDelay:1800,
 
-    if(!deleting){
+loop:true
 
-        typing.textContent = current.substring(0,charIndex++);
+});
 
-        if(charIndex > current.length){
+/*======================================
+DARK MODE
+======================================*/
 
-            deleting = true;
+const toggle=document.getElementById("theme-toggle");
 
-            setTimeout(typeEffect,1500);
+toggle.onclick=()=>{
 
-            return;
+document.body.classList.toggle("light-mode");
 
-        }
+if(document.body.classList.contains("light-mode")){
 
-    }
+toggle.innerHTML='<i class="fas fa-sun"></i>';
 
-    else{
+}else{
 
-        typing.textContent = current.substring(0,charIndex--);
-
-        if(charIndex < 0){
-
-            deleting = false;
-
-            wordIndex++;
-
-            if(wordIndex >= words.length){
-
-                wordIndex = 0;
-
-            }
-
-        }
-
-    }
-
-    setTimeout(typeEffect,deleting?50:100);
+toggle.innerHTML='<i class="fas fa-moon"></i>';
 
 }
 
-typeEffect();
+};
 
-/* ===========================
-   CUSTOM CURSOR
-=========================== */
+/*======================================
+CUSTOM CURSOR
+======================================*/
 
-const cursor = document.querySelector(".cursor");
+const cursor=document.querySelector(".cursor");
 
 document.addEventListener("mousemove",(e)=>{
 
@@ -121,247 +96,258 @@ cursor.style.top=e.clientY+"px";
 
 });
 
-/* ===========================
-   BACK TO TOP
-=========================== */
-
-const topBtn=document.getElementById("topBtn");
+/*======================================
+SCROLL PROGRESS
+======================================*/
 
 window.addEventListener("scroll",()=>{
 
-if(window.scrollY>400){
+const scrollTop=document.documentElement.scrollTop;
 
-topBtn.style.display="block";
+const height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
 
-}else{
+const progress=(scrollTop/height)*100;
 
-topBtn.style.display="none";
-
-}
+document.querySelector(".progress-bar").style.width=progress+"%";
 
 });
-
-topBtn.onclick=()=>{
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-};
-/* ===========================
-   SCROLL PROGRESS BAR
-=========================== */
-
-const progressBar = document.querySelector(".progress-bar");
-
-window.addEventListener("scroll", () => {
-
-const totalHeight =
-document.documentElement.scrollHeight -
-window.innerHeight;
-
-const progress =
-(window.pageYOffset / totalHeight) * 100;
-
-progressBar.style.width = progress + "%";
-
-});
-
-/* ===========================
-   ACTIVE NAVBAR LINK
-=========================== */
-
-const sections = document.querySelectorAll("section");
-
-const navLinks = document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll", () => {
-
-let current = "";
-
-sections.forEach(section => {
-
-const sectionTop = section.offsetTop - 150;
-
-const sectionHeight = section.clientHeight;
-
-if (pageYOffset >= sectionTop) {
-
-current = section.getAttribute("id");
-
-}
-
-});
-
-navLinks.forEach(link => {
-
-link.classList.remove("active");
-
-if (link.getAttribute("href") === "#" + current) {
-
-link.classList.add("active");
-
-}
-
-});
-
-});
-
-/* ===========================
-   MOBILE MENU
-=========================== */
+/*======================================
+MOBILE MENU
+======================================*/
 
 const menuBtn = document.querySelector(".menu-btn");
-
-const navMenu = document.querySelector(".nav-links");
+const navLinks = document.querySelector(".nav-links");
 
 menuBtn.addEventListener("click", () => {
 
-navMenu.classList.toggle("show");
+    navLinks.classList.toggle("active");
+
+    if (navLinks.classList.contains("active")) {
+
+        menuBtn.innerHTML = '<i class="fas fa-times"></i>';
+
+    } else {
+
+        menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+
+    }
 
 });
 
-/* ===========================
-   SCROLL REVEAL ANIMATION
-=========================== */
+/*======================================
+CLOSE MENU ON LINK CLICK
+======================================*/
 
-const revealElements = document.querySelectorAll(
+document.querySelectorAll(".nav-links a").forEach(link => {
 
-".hero,.about,.skills,.projects,.education,.contact,.project-card,.skill-card,.timeline-item"
+    link.addEventListener("click", () => {
 
-);
+        navLinks.classList.remove("active");
 
-function revealOnScroll() {
+        menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
 
-const trigger = window.innerHeight * 0.85;
-
-revealElements.forEach(el => {
-
-const top = el.getBoundingClientRect().top;
-
-if (top < trigger) {
-
-el.classList.add("show");
-
-}
+    });
 
 });
 
-}
+/*======================================
+BACK TO TOP BUTTON
+======================================*/
 
-window.addEventListener("scroll", revealOnScroll);
+const topBtn = document.getElementById("topBtn");
 
-revealOnScroll();
+window.addEventListener("scroll", () => {
 
-/* ===========================
-   STATS COUNTER
-=========================== */
+    if (window.scrollY > 500) {
 
-const counters = document.querySelectorAll(".card h2");
+        topBtn.style.display = "flex";
 
-const speed = 120;
+    } else {
 
-const animateCounter = () => {
+        topBtn.style.display = "none";
 
-counters.forEach(counter => {
-
-const target = parseInt(counter.innerText);
-
-let count = 0;
-
-const update = () => {
-
-const increment = Math.ceil(target / speed);
-
-count += increment;
-
-if (count < target) {
-
-counter.innerText = count + "+";
-
-requestAnimationFrame(update);
-
-} else {
-
-counter.innerText = target + "+";
-
-}
-
-};
-
-update();
+    }
 
 });
 
-};
+topBtn.addEventListener("click", () => {
 
-animateCounter();
+    window.scrollTo({
 
-/* ===========================
-   SMOOTH SCROLL
-=========================== */
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+});
+
+/*======================================
+SMOOTH SCROLL
+======================================*/
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
-anchor.addEventListener("click", function (e) {
+    anchor.addEventListener("click", function (e) {
 
-e.preventDefault();
+        e.preventDefault();
 
-document.querySelector(this.getAttribute("href")).scrollIntoView({
+        const target = document.querySelector(this.getAttribute("href"));
 
-behavior: "smooth"
+        if (target) {
+
+            target.scrollIntoView({
+
+                behavior: "smooth"
+
+            });
+
+        }
+
+    });
 
 });
 
-});
+/*======================================
+ACTIVE NAV LINK
+======================================*/
+
+const sections = document.querySelectorAll("section");
+const navItems = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 120;
+
+        if (pageYOffset >= sectionTop) {
+
+            current = section.getAttribute("id");
+
+        }
+
+    });
+
+    navItems.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + current) {
+
+            link.classList.add("active");
+
+        }
+
+    });
 
 });
+/*======================================
+NAVBAR SHADOW
+======================================*/
 
-/* ===========================
-   GLASS HOVER EFFECT
-=========================== */
+const header = document.querySelector("header");
 
-const cards = document.querySelectorAll(
+window.addEventListener("scroll", () => {
 
-".project-card,.skill-card,.card,.info-box"
+    if (window.scrollY > 60) {
 
+        header.style.boxShadow = "0 10px 30px rgba(0,0,0,.25)";
+
+    } else {
+
+        header.style.boxShadow = "none";
+
+    }
+
+});
+
+/*======================================
+REVEAL ANIMATION
+======================================*/
+
+const revealItems = document.querySelectorAll(
+    ".card,.skill-card,.project-card,.timeline-item,.certificate-card,.resume-box,.info-box"
 );
 
-cards.forEach(card => {
+const revealObserver = new IntersectionObserver((entries) => {
 
-card.addEventListener("mousemove", e => {
+    entries.forEach(entry => {
 
-const rect = card.getBoundingClientRect();
+        if (entry.isIntersecting) {
 
-const x = e.clientX - rect.left;
+            entry.target.classList.add("fade-up");
 
-const y = e.clientY - rect.top;
+        }
 
-card.style.background =
+    });
 
-`radial-gradient(circle at ${x}px ${y}px,
-rgba(59,130,246,.18),
-rgba(255,255,255,.05))`;
+}, {
+    threshold: 0.15
+});
+
+revealItems.forEach(item => {
+
+    revealObserver.observe(item);
 
 });
 
-card.addEventListener("mouseleave", () => {
+/*======================================
+CONTACT FORM
+======================================*/
 
-card.style.background = "rgba(255,255,255,.05)";
+const contactForm = document.querySelector(".contact-form form");
+
+if (contactForm) {
+
+    contactForm.addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        alert("Thank you! Your message has been received.");
+
+        contactForm.reset();
+
+    });
+
+}
+
+/*======================================
+CURRENT YEAR
+======================================*/
+
+const copyright = document.querySelector(".copyright");
+
+if (copyright) {
+
+    copyright.innerHTML =
+        `© ${new Date().getFullYear()} Shubhi Sharma. All Rights Reserved.`;
+
+}
+
+/*======================================
+PRELOAD IMAGES
+======================================*/
+
+[
+    "images/profile.jpg",
+    "images/project1.png",
+    "images/project2.png",
+    "images/project3.png",
+    "images/project4.png"
+].forEach(src => {
+
+    const img = new Image();
+
+    img.src = src;
 
 });
 
-});
+/*======================================
+CONSOLE MESSAGE
+======================================*/
 
-/* ===========================
-   CONSOLE MESSAGE
-=========================== */
-
-console.log(
-"%cDesigned & Developed by Shubhi Sharma",
-"color:#06b6d4;font-size:18px;font-weight:bold;"
-);
+console.log("%cWelcome to Shubhi Sharma's Portfolio 🚀",
+"color:#c084fc;font-size:18px;font-weight:bold;");
